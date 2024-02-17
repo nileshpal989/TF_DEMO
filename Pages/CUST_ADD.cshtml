@@ -1,0 +1,79 @@
+﻿@page
+@*@model CRUDCORE.Pages.CUST_ADDModel*@
+@model CRUDCORE.Pages.CUST_ADDModel
+
+@{
+    ViewData["Title"] = "Add Customer Details";
+}
+<!-- Add this script block in your Razor Page -->
+<script>
+    function showAlert() {
+        alert("Customer Details Added...");
+    }
+</script>
+
+<!-- Rest of your Razor Page content -->
+
+
+<h1>Add Customer Details</h1>
+<div>
+
+    <dl>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Cust_Details.id"></label>
+                    <input asp-for="Cust_Details.id" class="form-control" />
+                    <span asp-validation-for="Cust_Details.id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cust_Details.Cust_Name"></label>
+                    <input asp-for="Cust_Details.Cust_Name" class="form-control" />
+                    <span asp-validation-for="Cust_Details.Cust_Name" class="text-danger"></span>
+                </div>  
+                <div class="form-group">
+                    <label asp-for="Cust_Details.Cust_Address"></label>
+                    <input asp-for="Cust_Details.Cust_Address" class="form-control" />
+                    <span asp-validation-for="Cust_Details.Cust_Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cust_Details.Cust_Email"></label>
+                    <input asp-for="Cust_Details.Cust_Email" class="form-control" />
+                    <span asp-validation-for="Cust_Details.Cust_Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cust_Details.Cust_MOBILE"></label>
+                    <input asp-for="Cust_Details.Cust_MOBILE" class="form-control" />
+                    <span asp-validation-for="Cust_Details.Cust_MOBILE" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*@if (TempData["SuccessMessage"] != null)
+                    {
+                        <script>
+                            alert('@TempData["SuccessMessage"]');
+                        </script>
+                    }
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <script>
+                            alert('@TempData["ErrorMessage"]');
+                        </script>
+                    }*@
+                    @{
+                        var alertMessage = "Customer Details added succesfully";/* TempData["SuccessMessage"] as string;*/
+                    }
+
+                    @if (!string.IsNullOrEmpty(alertMessage))
+                    {
+                        <script>
+                            alert('@alertMessage');
+                        </script>
+                    }
+
+                    <input type="submit" value="ADD" class="btn btn-primary"  />
+                </div>
+            </form>
+        </div>
+    </dl>
+</div>
